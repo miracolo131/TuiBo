@@ -1,0 +1,31 @@
+//
+//  FSPComment.m
+//  TuiBo
+//
+//  Created by Miracolo Bosco on 14/11/10.
+//  Copyright (c) 2014年 随便什么组. All rights reserved.
+//  评论对象返回数据结构
+//  详细字段说明:http://open.weibo.com/wiki/%E5%B8%B8%E8%A7%81%E8%BF%94%E5%9B%9E%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84#.E8.AF.84.E8.AE.BA.EF.BC.88comment.EF.BC.89
+
+#import "FSPComment.h"
+#import "FSPUser.h"
+#import "FSPStatus.h"
+
+@implementation FSPComment
+
+@synthesize ID = _id;
+
+- (void)dealloc
+{
+    [_created_at release];
+    [_text release];
+    [_source release];
+    [_user release];
+    [_mid release];
+    [_idstr release];
+    [_status release];
+    //
+    [super dealloc];
+}
+
+@end

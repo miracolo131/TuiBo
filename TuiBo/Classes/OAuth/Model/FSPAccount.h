@@ -1,0 +1,31 @@
+//
+//  FSPAccount.h
+//  TuiBo
+//
+//  Created by Miracolo Bosco on 14/12/11.
+//  Copyright (c) 2014年 随便什么组. All rights reserved.
+//  用来存储用户授权信息的数据结构
+/**
+ *  {
+ "access_token": "ACCESS_TOKEN",
+ "expires_in": 1234,
+ "remind_in":"798114",
+ "uid":"12341234"
+ }
+ */
+
+#import <Foundation/Foundation.h>
+
+@interface FSPAccount : NSObject<NSCoding>
+
+@property (nonatomic, copy) NSString *access_token;
+//@property (nonatomic, copy) NSString *expires_in;
+@property (nonatomic, assign) long long expires_in;
+@property (nonatomic, retain) NSDate *expiresTime;
+@property (nonatomic, copy) NSString *remind_in;
+@property (nonatomic, copy) NSString *uid;
+
++ (instancetype)accountWithDic:(NSDictionary *)dic;
+- (instancetype)initwithDic:(NSDictionary *)dic;
+
+@end

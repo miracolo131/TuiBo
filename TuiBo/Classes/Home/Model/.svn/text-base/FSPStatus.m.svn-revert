@@ -1,0 +1,31 @@
+//
+//  FSPStatus.m
+//  TuiBo
+//
+//  Created by Miracolo Bosco on 14/11/10.
+//  Copyright (c) 2014年 随便什么组. All rights reserved.
+//
+
+#import "FSPStatus.h"
+#import "FSPGeo.h"
+#import "FSPUser.h"
+
+@implementation FSPStatus
+
+@synthesize ID = _id;
+
+- (void)dealloc
+{
+    [_created_at release];
+    [_idstr release];
+    [_text release];
+    [_source release];
+    [_thumbnail_pic release];
+    [_bmiddle_pic release];
+    [_original_pic release];
+    [_geo release];
+    [_user release];
+    [super dealloc];
+}
+
+@end

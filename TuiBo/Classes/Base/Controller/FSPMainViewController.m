@@ -1,0 +1,95 @@
+//
+//  FSPMainViewController.m
+//  TuiBo
+//
+//  Created by Miracolo Bosco on 14/12/10.
+//  Copyright (c) 2014年 随便什么组. All rights reserved.
+//
+
+#import "FSPMainViewController.h"
+#import "FSPHomeViewController.h"
+#import "FSPMessageViewController.h"
+#import "FSPDiscoveryViewController.h"
+#import "FSPMyselfViewController.h"
+
+@interface FSPMainViewController ()
+
+@end
+
+@implementation FSPMainViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    [self setupAllChildController];
+}
+
+/**
+ *  初始化子控制器
+ *
+ *  @param childVC 需要初始化的子控制器
+ *  @param title   子控制器的标题
+ *  @param imageName   子控制器 tabBar 图片名称
+ */
+- (void)setupChildViewController:(UIViewController *)childVC title:(NSString *)title imageName:(NSString *)imageName
+{
+    childVC.title = title;
+    childVC.tabBarItem.image = [UIImage imageNamed:imageName];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVC];
+    [self addChildViewController:nav];
+    [nav release];
+}
+
+/**
+ *  初始化所有子控制器
+ */
+- (void)setupAllChildController
+{
+    FSPHomeViewController *homeVC = [[FSPHomeViewController alloc] init];
+    [self setupChildViewController:homeVC title:@"首页" imageName:@"home"];
+    
+    FSPMessageViewController *messageVC = [[FSPMessageViewController alloc] init];
+    [self setupChildViewController:messageVC title:@"" imageName:@"message"];
+    messageVC.tabBarItem.title = @"消息";
+    
+    FSPDiscoveryViewController *discoveryVC = [[FSPDiscoveryViewController alloc] init];
+    [self setupChildViewController:discoveryVC title:@"探索" imageName:@"discovery"];
+    
+    FSPMyselfViewController *myselfVC = [[FSPMyselfViewController alloc] init];
+    [self setupChildViewController:myselfVC title:@"我的" imageName:@"myself"];
+    
+    [homeVC release];
+    [messageVC release];
+    [discoveryVC release];
+    [myselfVC release];
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

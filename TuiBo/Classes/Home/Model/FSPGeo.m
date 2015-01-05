@@ -1,0 +1,27 @@
+//
+//  FSPGeo.m
+//  TuiBo
+//
+//  Created by Miracolo Bosco on 14/12/10.
+//  Copyright (c) 2014年 随便什么组. All rights reserved.
+//
+
+#import "FSPGeo.h"
+
+@implementation FSPGeo
+
+- (void)dealloc
+{
+    [_longitude release];
+    [_latitude release];
+    [_city release];
+    [_province release];
+    [_city_name release];
+    [_province_name release];
+    [_address release];
+    [_pinyin release];
+    [_more release];
+    [super dealloc];
+}
+
+@end
